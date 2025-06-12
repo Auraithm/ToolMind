@@ -1,0 +1,13 @@
+# 数据集名称映射表（数据源可以自行修改）
+dataset_mapping:
+  # 基础数学数据集
+  GSM8K: openai/gsm8k
+  MATH: HuggingFaceH4/MATH
+  MATH-500: HuggingFaceH4/MATH-500
+
+  # 高难度数学数据集
+  AIME-2024: Maxwell-Jia/AIME_2024
+  AIME-2025: FVU/AIME_2025
+  DAPO-Math-17k: open-r1/DAPO-Math-17k-Processed
+  AMC: AI-MO/aimo-validation-amc
+  
