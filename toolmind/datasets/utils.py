@@ -82,29 +82,35 @@ def download_dataset(name: str = None, config: str = None, download_dir: str = "
             raise e
 
 def load_dataset(path: str = None, config: str = "default", split = None) -> None:
-    from datasets import load_dataset
+    """
+    Load a dataset from a path
+    Args:
+        path: Path to the dataset
+        config: Configuration of the dataset
+        split: Split of the dataset
+    Returns:
+        Dataset
+    """
+    import datasets
     if config not in ["default"]:
-        dataset = load_dataset(os.path.join(path, config), split=split)
+        dataset = datasets.load_dataset(os.path.join(path, config), split=split)
     else:
-        dataset = load_dataset(path, split=split)
+        dataset = datasets.load_dataset(path, split=split)
     print(dataset)
     return dataset
 
-def apply_func(dataset, func: Callable):
-    dataset = dataset.map(func, with_indices=True, remove_columns=dataset.column_names)
+def apply_func(dataset, func: Callable, remove_columns: bool = True):
+    """
+    Apply a function to a dataset
+    Args:
+        dataset: Dataset
+        func: Function to apply
+        remove_columns: Whether to remove old columns
+    Returns:
+        Dataset
+    """
+    dataset = dataset.map(func, with_indices=True, remove_columns=remove_columns)
     return dataset
 
 if __name__ == "__main__":
     download_dataset(name="MATH-500", config="default", download_dir="data/")
-    # dataset = load_dataset(path="datasets/datasets/GSM8K", config = "main", split="train")
-    # def f(example, index):
-    #     if index == 0:
-    #         print(example)
-    #     # 当使用 remove_columns 时，需要返回完整的新字典结构
-    #     # 但可以保持相同的列名来"覆盖"原始值
-    #     return {
-    #         "question": example["question"].replace("\\", ""),  # 覆盖原始的 question 列
-    #         "answer": example["answer"]  # 保留原始的 answer 列
-    #     }
-    # dataset = apply_function(dataset, f)
-    # print(dataset)
