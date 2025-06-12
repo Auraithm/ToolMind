@@ -1,5 +1,6 @@
-from toolmind.datasets import download_dataset
+from toolmind.datasets import download_dataset, load_dataset
 
 # 下载 AIME-2024 数据集
-download_dataset("AIME-2024", download_dir="./data")
+# download_dataset("AIME-2024", download_dir="./data")
 
+load_dataset("data/AIME-2024", split="train")

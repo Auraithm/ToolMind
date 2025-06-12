@@ -95,7 +95,7 @@ def load_dataset(path: str = None, config: str = "default", split = None) -> Non
     if config not in ["default"]:
         dataset = datasets.load_dataset(os.path.join(path, config), split=split)
     else:
-        dataset = datasets.load_dataset(path, split=split)
+        dataset = datasets.load_dataset(path)[split]
     print(dataset)
     return dataset
 
