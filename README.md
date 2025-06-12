@@ -4,15 +4,12 @@
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Documentation](https://img.shields.io/badge/docs-latest-brightgreen)](https://toolmind-docs.readthedocs.io/en/latest/usage.html)
 
+一个全面的AI研究工具包，集成了各种实用工具，以加速您的研究工作！
 
-一个用于科研工作的集成工具库，专注于数据集管理和处理。
+## 功能
 
-## 功能特性
-
-- 🔥 **数据集管理**: 支持多种主流数据集的下载和管理
-- 📊 **格式支持**: 支持 parquet, json, csv, jsonl 等多种数据格式
-- 🌐 **镜像支持**: 支持使用 HuggingFace 镜像加速下载
-- 🛠️ **数据处理**: 提供数据集处理和转换工具
+- 🔥 **模型和数据集管理**：支持下载和管理各种主流推理模型和数据集，提供多种下载方法和保存格式。
+- ⚡ **异步并发处理**：提供高性能的异步任务处理器，支持多种任务类型，包括IO密集型、网络密集型和CPU密集型任务，优化资源管理和错误重试机制。
 
 
 ## 安装
