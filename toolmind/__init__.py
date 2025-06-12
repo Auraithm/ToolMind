@@ -7,10 +7,10 @@ ToolMind - 科研集成工具库
 __version__ = "0.1.0"
 __author__ = "PJLAB-AI4S"
 
-from .datasets.utils import download_dataset, load_dataset, apply_function
+from .datasets.utils import download_dataset, load_dataset, apply_func
 
 __all__ = [
     "download_dataset",
     "load_dataset", 
-    "apply_function"
+    "apply_func"
 ] 

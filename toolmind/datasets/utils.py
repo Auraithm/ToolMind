@@ -1,7 +1,6 @@
 import os
 import yaml
 from tqdm import tqdm
-from datasets import Dataset
 from typing import Callable
 
 def download_dataset(name: str = None, config: str = None, download_dir: str = "./", format: str = "parquet", use_hf_mirror: bool = False) -> None:
@@ -19,11 +18,10 @@ def download_dataset(name: str = None, config: str = None, download_dir: str = "
     try:
         # 如果没配置代理，可以使用hf-mirror镜像
         if use_hf_mirror:
-            os.environ["HF_ENDPOINT"] = "https://hf-mirror.com/"
+            os.environ["HF_ENDPOINT"] = "https://hf-mirror.com"
+
         import datasets
-        
         # 从yaml文件中读取数据集名称映射
-        import os
         yaml_path = os.path.join(os.path.dirname(__file__), "dataset_name.yaml")
         with open(yaml_path, "r") as f:
             dataset_mapping = yaml.safe_load(f)["dataset_mapping"]
@@ -76,8 +74,12 @@ def download_dataset(name: str = None, config: str = None, download_dir: str = "
             print(f"Dataset {config} has been downloaded to {branch_dir}.")
 
     except Exception as e:
-        print(f"加载数据集时出错: {str(e)}")
-        raise
+        print(f"Error: {str(e)}")
+        if "ConnectionError:" in str(e):
+            print("ConnectionError: Retrying with hf-mirror...")
+            download_dataset(name, config, download_dir, format, use_hf_mirror=True)
+        else:
+            raise e
 
 def load_dataset(path: str = None, config: str = "default", split = None) -> None:
     from datasets import load_dataset
@@ -88,7 +90,7 @@ def load_dataset(path: str = None, config: str = "default", split = None) -> Non
     print(dataset)
     return dataset
 
-def apply_func(dataset: Dataset, func: Callable) -> Dataset:
+def apply_func(dataset, func: Callable):
     dataset = dataset.map(func, with_indices=True, remove_columns=dataset.column_names)
     return dataset
 
