@@ -16,4 +16,5 @@ __all__ = [
     "datasets",
     "models", 
     "processes",
+    "network",
 ] 

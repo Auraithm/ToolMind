@@ -1,0 +1,10 @@
+{
+  "smtp_server": "smtp.gmail.com",
+  "smtp_port": 587,
+  "from_email": "your_email@gmail.com",
+  "login": "your_email@gmail.com",
+  "password": "your_app_password",
+  "use_tls": true,
+  "use_ssl": false,
+  "timeout": 30
+} 
