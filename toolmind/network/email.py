@@ -13,7 +13,7 @@ import time
 from dataclasses import dataclass
 import re
 
-# 配置日志
+# Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
