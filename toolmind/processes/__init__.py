@@ -1,11 +1,11 @@
 """
-ToolMind.datasets - 数据集管理模块
+ToolMind.processes - 异步任务处理模块
 
-提供数据集下载、加载和处理功能。
+提供高性能并发任务执行功能，包括进度条显示、错误重试和资源管理等特性。
 """
 
-from .utils import AsyncTasks
+from . import utils
 
 __all__ = [
-    "AsyncTasks",
+    "utils",
 ] 

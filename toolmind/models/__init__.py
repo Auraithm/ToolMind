@@ -1,11 +1,11 @@
 """
-ToolMind.datasets - 数据集管理模块
+ToolMind.models - 模型管理模块
 
-提供数据集下载、加载和处理功能。
+提供模型下载和管理功能。
 """
 
-from .utils import download_model
+from . import utils
 
 __all__ = [
-    "download_model",
+    "utils",
 ] 
