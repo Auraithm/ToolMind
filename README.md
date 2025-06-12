@@ -27,9 +27,6 @@ git clone https://github.com/Auraithm/toolmind.git
 cd toolmind
 pip install -e .
 ```
-### 文档
-详细使用说明可以在以下链接找到：[ToolMind 使用文档](https://toolmind-docs.readthedocs.io/en/latest/usage.html)
-
 
 ## 许可证
 
