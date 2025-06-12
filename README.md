@@ -2,6 +2,8 @@
 
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)](https://www.python.org/)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![Documentation](https://img.shields.io/badge/docs-latest-brightgreen)](https://toolmind-docs.readthedocs.io/en/latest/usage.html)
+
 
 一个用于科研工作的集成工具库，专注于数据集管理和处理。
 
@@ -28,44 +30,9 @@ git clone https://github.com/Auraithm/toolmind.git
 cd toolmind
 pip install -e .
 ```
+### 文档
+详细使用说明可以在以下链接找到：[ToolMind 使用文档](https://toolmind-docs.readthedocs.io/en/latest/usage.html)
 
-## 快速开始
-
-### 下载数据集
-```python
-from toolmind import download_dataset
-
-# 下载 AIME-2024 数据集
-download_dataset("AIME-2024", download_dir="./data")
-
-# 使用镜像加速
-download_dataset("AIME-2024", download_dir="./data", use_hf_mirror=True)
-```
-
-### 添加数据集
-修改 toolmind/datasets/dataset_name.yaml进行手动添加。
-
-### 加载数据集
-```python
-from toolmind import load_dataset
-
-# 加载本地数据集
-dataset = load_dataset("./data/GSM8K")
-```
-
-## 支持的数据集
-
-当前支持以下数据集：
-- **GSM8K**: 数学问题数据集
-- **MATH**: 数学竞赛问题数据集
-- **AIME-2024**: AIME 2024 数学竞赛数据集
-- **AIME-2025**: AIME 2025 数学竞赛数据集
-- **AMC**: AMC 数学竞赛数据集
-- 更多数据集持续添加中...
-
-## 配置说明
-
-数据集配置文件位于 `toolmind/datasets/dataset_name.yaml`，您可以根据需要添加自定义数据集。
 
 ## 许可证
 

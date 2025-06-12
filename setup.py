@@ -17,6 +17,7 @@ setup(
         "transformers",
         "modelscope",
         "huggingface_hub",
+        "nest_asyncio",
     ],
     include_package_data=True,
     package_data={
