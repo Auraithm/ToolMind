@@ -49,15 +49,15 @@ def download_dataset(name: str = None, config: str = None, download_dir: str = "
             print(f"SubDataset {config} is downloading to {branch_dir}...")
             os.makedirs(branch_dir, exist_ok=True)
             dataset = datasets.load_dataset(dataset_name, config)
+            print(dataset)
             # 如果只有一个train 或者一个test划分，则复制一份到另外一边
             if len(dataset.keys()) == 1:
-                if "train" in dataset.keys():
+                if "train" in dataset:
                     dataset["test"] = dataset["train"]
-                elif "test" in dataset.keys():
+                elif "test" in dataset:
                     dataset["train"] = dataset["test"]
                 else:
                     raise ValueError(f"Dataset {config} has no train or test split.")
-            print(dataset)
             # 保存每个划分
             for split in tqdm(dataset.keys(), desc=f"Downloading ..."):
                 if format == "parquet":
@@ -96,7 +96,6 @@ def load_dataset(path: str = None, config: str = "default", split = None) -> Non
         dataset = datasets.load_dataset(os.path.join(path, config), split=split)
     else:
         dataset = datasets.load_dataset(path)[split]
-    print(dataset)
     return dataset
 
 def apply_func(dataset, func: Callable, remove_columns: bool = True):
